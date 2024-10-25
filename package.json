@@ -1,6 +1,6 @@
 {
   "name": "dn-core",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "dn core",
   "main": "dist/index.js",
   "engines": {
@@ -30,6 +30,11 @@
   "files": [
     "dist/"
   ],
+  "types": "./dist/index.d.ts",
+  "volta": {
+    "node": "18.20.3",
+    "yarn": "4.1.0"
+  },
   "devDependencies": {
     "@babel/plugin-proposal-decorators": "7.23.6",
     "@babel/plugin-proposal-export-default-from": "7.23.3",
@@ -66,10 +71,5 @@
     "webpack-cli": "5.1.4",
     "webpack-dev-server": "4.15.1",
     "webpack-plugin-vuetify": "2.0.1"
-  },
-  "volta": {
-    "node": "18.20.3",
-    "yarn": "4.1.0"
-  },
-  "types": "./dist/index.d.ts"
+  }
 }
