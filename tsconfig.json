@@ -1,0 +1,32 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM", "DOM.Iterable", "es6", "es2015", "es2015.promise", "es2017", "es2018", "es2019"],
+    "types": ["node", "@types/jest"],
+    "moduleResolution": "node",
+    "target": "ES2021",
+    "module": "esnext",
+    "baseUrl": ".",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true,
+    "strictNullChecks": false,
+    "skipLibCheck": true,
+    "noUncheckedIndexedAccess": true,
+    "preserveConstEnums": true,
+    "noImplicitThis": false,
+    "strictPropertyInitialization": false,
+    "allowJs": false,
+    "paths": {
+      "@/*": ["src/*"],
+    },
+    "resolveJsonModule": true
+  },
+  "include": ["src/**/*", "typings/**/*", "node_modules/@types/**/*"],
+  "exclude": [
+    "node_modules",
+  ]
+}
