@@ -8,10 +8,16 @@ module.exports = {
   mode: 'production',
   entry: {
     'index': path.join(__dirname, '../src'),
+    'eventBus': path.join(__dirname, '../src/utils/eventBus'),
+    'cookies': path.join(__dirname, '../src/utils/cookies'),
+    'uid': path.join(__dirname, '../src/utils/uid'),
+    'delay': path.join(__dirname, '../src/utils/delay'),
+    'isDefined': path.join(__dirname, '../src/utils/isDefined'),
+
   },
   output: {
     library: {
-      name: 'ldmcore',
+      name: 'dncore',
       type: 'umd',
     },
     filename: '[name].js',
@@ -20,6 +26,11 @@ module.exports = {
   },
   externals: {
     'vue': 'vue',
+    '@/utils/eventBus': './eventBus.js',
+    '@/utils/cookies': './cookies.js',
+    '@/utils/uid': './uid.js',
+    '@/utils/delay': './delay.js',
+    '@/utils/isDefined': './isDefined.js'
   },
   resolve: {
     symlinks: true,
@@ -27,14 +38,14 @@ module.exports = {
     extensions: ['.*', '.ts', '.js', '.html', '.json'],
     alias: {
       'vue$': 'vue/dist/vue.esm-bundler.js',
-      '@': 'src',
+      '@': 'src'
     },
   },
   module: {
     rules,
   },
   optimization: {
-    minimize: true,
+    minimize: false,
     minimizer: [
       minimizer
     ]

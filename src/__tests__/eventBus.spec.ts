@@ -1,7 +1,7 @@
 import { mount, VueWrapper } from '@vue/test-utils';
 import { ComponentPublicInstance, defineComponent } from 'vue';
 import { Vue } from 'vue-property-decorator';
-import { eventBus } from './eventBus';
+import { eventBus } from '../utils/eventBus';
 
 interface IComponent {
   value: number;

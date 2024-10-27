@@ -1,4 +1,4 @@
-import { IEventBus } from './types/eventBus';
+import { IEventBus } from '../types/eventBus';
 
 class EventBus implements IEventBus {
   /* eslint-disable-next-line @typescript-eslint/no-explicit-any */
