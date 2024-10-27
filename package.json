@@ -1,6 +1,6 @@
 {
   "name": "dn-core",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "dn core",
   "main": "dist/index.js",
   "engines": {
