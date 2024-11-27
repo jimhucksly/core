@@ -16,6 +16,7 @@ module.exports = {
 
   },
   output: {
+    globalObject: 'this',
     library: {
       name: 'dncore',
       type: 'umd',
