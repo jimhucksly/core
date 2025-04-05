@@ -1,7 +1,5 @@
-const { VueLoaderPlugin } = require('vue-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const DefinePlugin = require('webpack/lib/DefinePlugin');
-const CopyWebpackPlugin = require('copy-webpack-plugin');
 const path = require('path');
 const rules = require('./rules');
 const devServer = require('./server');

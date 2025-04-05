@@ -13,6 +13,7 @@ module.exports = {
     'uid': path.join(__dirname, '../src/utils/uid'),
     'delay': path.join(__dirname, '../src/utils/delay'),
     'isDefined': path.join(__dirname, '../src/utils/isDefined'),
+    'base64': path.join(__dirname, '../src/utils/base64'),
 
   },
   output: {
@@ -31,7 +32,8 @@ module.exports = {
     '@/utils/cookies': './cookies.js',
     '@/utils/uid': './uid.js',
     '@/utils/delay': './delay.js',
-    '@/utils/isDefined': './isDefined.js'
+    '@/utils/isDefined': './isDefined.js',
+    '@/utils/base64': './base64.js'
   },
   resolve: {
     symlinks: true,

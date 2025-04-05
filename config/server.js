@@ -1,6 +1,6 @@
 module.exports = {
   https: false,
-  port: 4000,
+  port: 5000,
   host: '0.0.0.0',
   historyApiFallback: true,
   hot: true,
