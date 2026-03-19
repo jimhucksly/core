@@ -4,3 +4,5 @@ export { uniqueID } from '@/utils/uid'
 export { delay } from '@/utils/delay'
 export { isDefined } from '@/utils/isDefined'
 export { base64 } from '@/utils/base64'
+
+export { generatePalette } from '@/palette'

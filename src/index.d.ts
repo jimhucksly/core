@@ -11,3 +11,26 @@ declare const base64: {
   decode(value: string): string;
   isValid(value: string): boolean;
 }
+
+interface IPivot {
+  h: number;
+  s: number;
+  l: number;
+  a: number;
+}
+
+type Steps = Record<string, Array<number>>;
+
+interface IShades {
+  steps: Steps;
+  prefix: string | ((steps: Steps, index: number) => string);
+}
+
+export interface IColor {
+  name: string;
+  darken?: IShades,
+  lighten?: IShades,
+  pivot: IPivot,
+}
+
+declare function generatePalette(colors?: Array<IColor>): string;
