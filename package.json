@@ -1,7 +1,6 @@
 {
-  "name": "dn-core",
-  "version": "1.0.5",
-  "description": "dn core",
+  "name": "@dn-web/core",
+  "version": "1.0.1",
   "main": "dist/index.js",
   "engines": {
     "node": ">=22",
@@ -11,16 +10,12 @@
     "dev": "cross-env NODE_ENV=development webpack serve --config config/webpack.config.dev.js --progress --profile --stats-error-details",
     "build": "cross-env NODE_ENV=production webpack --config config/webpack.config.build.js --stats-error-details",
     "test": "jest --runInBand --no-cache",
-    "pub": "node config/publish.js && npm publish --access=public"
+    "pub": "node config/publish.js && npm publish --access=public --tag=latest"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jimhucksly/core.git"
   },
-  "keywords": [
-    "dn",
-    "core"
-  ],
   "author": "Dmitriy Nevezhin <jimhucksly@gmail.com>",
   "license": "MIT",
   "bugs": {
