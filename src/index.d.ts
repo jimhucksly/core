@@ -1,15 +1,20 @@
 import { IEventBus } from './types/eventBus';
-import { ICookie } from './types/cookies';
+import { ICookie } from './types/cookie';
 
-declare const eventBus: IEventBus;
-declare const cookie: ICookie;
-declare function uniqueID(len: number, format: string): string | number;
-declare function delay(timeout: number): Promise<void>;
-declare function isDefined(value: unknown): boolean;
-declare const base64: {
+export declare const eventBus: IEventBus;
+export declare const cookie: ICookie;
+export declare function uniqueID(len: number, format?: string): string | number;
+export declare function delay(timeout: number): Promise<void>;
+export declare function isDefined(value: unknown): boolean;
+export declare function isJSON(value: unknown): boolean;
+export declare const base64: {
   encode(value: string): string;
   decode(value: string): string;
   isValid(value: string): boolean;
+}
+export declare const strings: {
+  upperFirst: (s: string) => string;
+  lowerFirst: (s: string) => string;
 }
 
 interface IPivot {
@@ -33,4 +38,4 @@ export interface IColor {
   pivot: IPivot,
 }
 
-declare function generatePalette(colors?: Array<IColor>): string;
+export declare function generatePalette(colors?: Array<IColor>): string;

@@ -1,5 +1,6 @@
-import { createApp, defineComponent } from "vue";
-import { generatePalette } from "./palette";
+import { createApp, defineComponent } from 'vue';
+import { generatePalette } from './palette';
+import { strings } from './utils/string';
 
 const App = defineComponent({
   template: '<div id="title">DN Core Library </div>',

@@ -1,8 +1,10 @@
-export { eventBus } from '@/utils/eventBus'
-export { cookie } from '@/utils/cookies'
+export { cookie } from '@/utils/cookie'
 export { uniqueID } from '@/utils/uid'
 export { delay } from '@/utils/delay'
 export { isDefined } from '@/utils/isDefined'
 export { base64 } from '@/utils/base64'
+export { isJSON } from '@/utils/isJSON';
+export { strings } from '@/utils/string';
 
+export { eventBus } from '@/eventBus'
 export { generatePalette } from '@/palette'

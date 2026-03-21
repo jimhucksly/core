@@ -8,13 +8,15 @@ module.exports = {
   mode: 'production',
   entry: {
     'index': path.join(__dirname, '../src'),
-    'eventBus': path.join(__dirname, '../src/utils/eventBus'),
-    'cookies': path.join(__dirname, '../src/utils/cookies'),
-    'uid': path.join(__dirname, '../src/utils/uid'),
-    'delay': path.join(__dirname, '../src/utils/delay'),
-    'isDefined': path.join(__dirname, '../src/utils/isDefined'),
-    'base64': path.join(__dirname, '../src/utils/base64'),
-
+    'eventBus': path.join(__dirname, '../src/eventBus'),
+    'palette': path.join(__dirname, '../src/palette'),
+    'utils.cookie':  path.join(__dirname, '../src/utils/cookie'),
+    'utils.uid': path.join(__dirname, '../src/utils/uid'),
+    'utils.delay': path.join(__dirname, '../src/utils/delay'),
+    'utils.isDefined': path.join(__dirname, '../src/utils/isDefined'),
+    'utils.base64': path.join(__dirname, '../src/utils/base64'),
+    'utils.isJSON': path.join(__dirname, '../src/utils/isJSON'),
+    'utils.string': path.join(__dirname, '../src/utils/string'),
   },
   output: {
     globalObject: 'this',
@@ -22,18 +24,29 @@ module.exports = {
       name: 'dncore',
       type: 'umd',
     },
-    filename: '[name].js',
+    filename: (pathData) => {
+      if (pathData.chunk.name === 'index') {
+        return '[name].js';
+      }
+      if (pathData.chunk.name.startsWith('utils')) {
+        return `utils/${pathData.chunk.name.replace(/^utils\./, '')}.js`;
+      }
+      return '[name].js';
+    },
     path: path.resolve(__dirname, '../dist'),
     clean: true,
   },
   externals: {
     'vue': 'vue',
-    '@/utils/eventBus': './eventBus.js',
-    '@/utils/cookies': './cookies.js',
-    '@/utils/uid': './uid.js',
-    '@/utils/delay': './delay.js',
-    '@/utils/isDefined': './isDefined.js',
-    '@/utils/base64': './base64.js'
+    '@/eventBus': './eventBus.js',
+    '@/palette': './palette.js',
+    '@/utils/cookie': './utils/cookie.js',
+    '@/utils/uid': './utils/uid.js',
+    '@/utils/delay': './utils/delay.js',
+    '@/utils/isDefined': './utils/isDefined.js',
+    '@/utils/base64': './utils/base64.js',
+    '@/utils/isJSON': './utils/isJSON.js',
+    '@/utils/string': './utils/string.js',
   },
   resolve: {
     symlinks: true,

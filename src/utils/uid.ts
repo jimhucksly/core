@@ -1,4 +1,4 @@
-export function uniqueID(len: number, format: string) {
+export function uniqueID(len: number, format?: string) {
   let result = ''
   let dic = ''
   switch (format) {

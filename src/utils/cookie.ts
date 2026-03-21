@@ -1,4 +1,4 @@
-import { ICookie, TExpires } from '@/types/cookies'
+import { ICookie, TExpires } from '@/types/cookie'
 
 class Cookie implements ICookie {
   set(key: string, value: string, expires: TExpires = 'month') {
@@ -32,4 +32,8 @@ class Cookie implements ICookie {
   }
 }
 
-export const cookie: ICookie = new Cookie();
+const cookie: ICookie = new Cookie();
+
+export {
+  cookie
+}
