@@ -2,16 +2,15 @@ const path = require('path');
 const fs = require('fs');
 const json = require('../package.json');
 
-function last (arr) {
-  if (Array.isArray(arr)) {
-    return arr[arr.length - 1];
-  }
-}
-
 function publish() {
   try {
-    const version = `1.0.${Number(last(json.version.split('.'))) + 1}`;
-    json.version = version;
+    const splited = json.version.split('.').map((e, i, arr) => {
+      if (i === arr.length - 1) {
+        return Number(e) + 1;
+      }
+      return e;
+    });
+    json.version = splited.join('.');
     const data = JSON.stringify(json, null, 2) + '\n';
     fs.writeFileSync(path.resolve(__dirname, '../package.json'), data);
   } catch (e) {
