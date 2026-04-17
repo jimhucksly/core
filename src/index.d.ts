@@ -32,7 +32,7 @@ export declare const datetime: {
   toDate: (d: DatetimeValueRaw, locale: string) => Date;
   localToISO: (value: string, locale: string) => string;
   dateToLocal: (value: string | Date, locale: string) => string;
-  compare: (a: DatetimeValueRaw, b: DatetimeValueRaw, strict: boolean) => number;
+  compare: (a: DatetimeValueRaw, b: DatetimeValueRaw, strict?: boolean) => number;
   strictCompare: (a: DatetimeValueRaw, b: DatetimeValueRaw) => number;
   toServerString: (dt: Date) => string;
   formatDate: (date: Date, format: string) => string;
