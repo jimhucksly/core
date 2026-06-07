@@ -1,6 +1,7 @@
 import { IEventBus } from './types/eventBus';
 import { ICookie } from './types/cookie';
 import { DatetimeValueRaw } from './types/datetime';
+import { PaletteScheme } from './types/palette';
 
 export declare const eventBus: IEventBus;
 export declare const cookie: ICookie;
@@ -16,6 +17,7 @@ export declare const base64: {
 export declare const strings: {
   upperFirst: (s: string) => string;
   lowerFirst: (s: string) => string;
+  isNumber: (value: unknown) => boolean;
 }
 export declare const objects: {
   isEmpty: (o: Record<string, unknown>) => boolean;
@@ -24,7 +26,7 @@ export declare const objects: {
 export declare const files: {
   getExtension: (filename: string) => string;
   getFileName: (filename: string) => string;
-  formatSize: (bytes: number | string, decimals: number) => string;
+  formatSize: (bytes: number | string, decimals?: number) => string;
 }
 export declare const datetime: {
   isDate: (value: string | Date) => boolean;
@@ -38,25 +40,5 @@ export declare const datetime: {
   formatDate: (date: Date, format: string) => string;
 }
 
-interface IPivot {
-  h: number;
-  s: number;
-  l: number;
-  a: number;
-}
-
-type Steps = Record<string, Array<number>>;
-
-interface IShades {
-  steps: Steps;
-  prefix: string | ((steps: Steps, index: number) => string);
-}
-
-export interface IColor {
-  name: string;
-  darken?: IShades,
-  lighten?: IShades,
-  pivot: IPivot,
-}
-
-export declare function generatePalette(colors?: Array<IColor>): string;
+export { PaletteScheme };
+export declare function generatePalette(colors?: PaletteScheme): string;

@@ -1,3 +1,5 @@
+import { PaletteScheme, IPaletteSchemeUnit, IShades } from "@/types/palette";
+
 interface IPivot {
   h: number;
   s: number;
@@ -5,21 +7,9 @@ interface IPivot {
   a: number;
 }
 
-type Steps = Record<string, Array<number>>;
 
-interface IShades {
-  steps: Steps;
-  prefix: string | ((steps: Steps, index: number) => string);
-}
 
-interface IColor {
-  name: string;
-  darken?: IShades,
-  lighten?: IShades,
-  pivot: IPivot,
-}
-
-const colorsDefault: Array<IColor> = [
+const defaultScheme: PaletteScheme = [
   {
     name: 'primary',
     lighten: {
@@ -114,12 +104,12 @@ const colorsDefault: Array<IColor> = [
   }
 ]
 
-function generatePalette(colors?: Array<IColor>): string {
-  if (!colors) {
-    colors = colorsDefault;
+function generatePalette(scheme?: PaletteScheme): string {
+  if (!scheme) {
+    scheme = defaultScheme;
   }
   let root = ':root {%palette%}';
-  for (const color of colors) {
+  for (const color of scheme) {
     const palette = generateColors(color);
     root = root.replace(/%palette%/g, palette + '%palette%');
   }
@@ -127,13 +117,13 @@ function generatePalette(colors?: Array<IColor>): string {
   return root;
 }
 
-function generateColors(color: IColor): string {
+function generateColors(color: IPaletteSchemeUnit): string {
   let result = '';
   const addBase = () => {
     const css = `  --${color.name}: ${getHSLA(color.pivot)};`;
     result = result + '\n' + css;
   }
-  ['lighten', 'darken'].forEach((a: keyof IColor, index : number) => {
+  ['lighten', 'darken'].forEach((a: keyof IPaletteSchemeUnit, index : number) => {
     if (!color[a]) {
       return;
     }
@@ -141,10 +131,10 @@ function generateColors(color: IColor): string {
     const data = color[a] as IShades;
     const steps = data.steps;
     const keys = Object.keys(steps);
-    const count = steps[keys[0]].length;
+    const count = steps[keys[0] as keyof IPivot].length;
     Array(count).fill(null).forEach((_, i) => {
       for (const key of keys) {
-        pivot[key as keyof IPivot] = steps[key][i];
+        pivot[key as keyof IPivot] = steps[key as keyof IPivot][i];
       }
       let prefix = '';
       if (data.prefix instanceof Function) {

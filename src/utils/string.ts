@@ -8,7 +8,8 @@ class Strings {
     if (!s.length) {
       return '';
     }
-    return s.charAt(0).toUpperCase() + s.slice((s.length - 1) * -1);
+    const upper = s.charAt(0).toUpperCase();
+    return upper + (s.length > 1 ? s.slice((s.length - 1) * -1) : '');
   }
 
   public lowerFirst(s: string) {
@@ -18,6 +19,10 @@ class Strings {
     }
     return s.charAt(0).toLowerCase() + s.slice((s.length - 1) * -1);
   };
+
+  public isNumber(value: unknown): boolean {
+    return !isNaN(value as number);
+  }
 }
 
 const strings = new Strings();
